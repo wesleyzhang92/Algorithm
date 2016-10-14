@@ -3,9 +3,9 @@ package divide_conquer;
 /**
  * Created by wesley on 2016/10/3.
  */
-/**
- * Strassen矩阵乘法
- * */
+
+//Strassen矩阵乘法
+
 import java.util.*;
 
 public class Strassen{
