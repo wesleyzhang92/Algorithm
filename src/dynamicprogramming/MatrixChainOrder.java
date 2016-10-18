@@ -27,7 +27,9 @@ public class MatrixChainOrder {
             int t = 0;
             int min = 0;
             int temp = 0;
-
+            for(int i=0; i<a.length-1;i++){
+                m[i][i]=0;
+            }
             for(int i=2; i<a.length; i++)
             {
                 for(int j=0; j<a.length-i; j++)
