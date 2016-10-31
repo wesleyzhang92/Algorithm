@@ -70,42 +70,22 @@ public class CutRod {
      * @return 最大收益
      */
     public int memoized_cut_aux(int[] p,int n,int[] r){
-        //递归出口，如果r[n] >0,表明，长度为 n 的钢条的最优值已经存在了。不用递归了，直接返回这个最优值，这里必须是r[n]>=0,因为r[0]是等于0的，
-        if (r[n]>=0){
-            System.out.println();
-            System.out.print("   ------直接返回r[" + n + "] = " + r[n] );
-
+        if (r[n]>=0)
             return r[n];
-        }
         //设置零时变量 q 最为最大值
         int q=-1;
         //刚进入递归的时候，刚开始一路调用下来，必然是从这个口出去。
         if (n==0){
-
             q=0;
-            System.out.print(" 调用 n ="+q + "    第一次保存r[0]的值：" + q);
         }else {
-            //递归调用，求解最大值。
-            System.out.println(" 调用 n ="+n);
-            for (int i=1;i<=n;i++){
+            for (int i = 1; i <= n; i++) {
 
-                q = max(q,p[i]+memoized_cut_aux(p,n-i,r));
-                System.out.print("   开始回溯到n="+n);
-                if (i==n){
-                    System.out.println();
-                }
-                // System.out.println();
+                q = max(q, p[i] + memoized_cut_aux(p, n - i, r));
             }
-
         }
-        System.out.println();
         //将每一次求的长度为 n 的最优值保存在数组 r 里面
         r[n]=q;
-        //返回最大值
 
-        if (n==r.length-1){
-            System.out.println("程序结束，返回r["+n+"]="+r[n]);
-        }
         return q;
     }
 
@@ -125,20 +105,11 @@ public class CutRod {
         //循环,外层依次求解 1....n的最优值
         for (int j=1;j<=n;j++){
             int q=-1;
-            //内层，依次在 1 .. j 中求出最大值，
-            //例如
-            // 当 j =1 的时候，q=max(q,p[1]+r[0]) .求的r[1]的最优值
-            // 当 j =2 的时候，q=max(q,p[1]+r[1])，然后再是 q=max(q,p[2]+r[0])  ，求的r[2]的最优值
-            //  ... 以此类推
-            System.out.print(j+"的最优值，利用到了");
             for (int i=1;i<=j;i++){
-                System.out.print("r[" + (j - i) + "]=" + r[j - i]+"  , ");
                 q=max(q,p[i]+r[j-i]);
             }
             //记录 j 的最优值
             r[j]=q;
-            System.out.println();
-            System.out.println(j+"的最优值："+q);
         }
         //最终返回 n 的最优值
         return r[n];
@@ -157,11 +128,6 @@ public class CutRod {
         //循环,外层依次求解 1....n的最优值
         for (int j=1;j<=n;j++){
             int q=-1;
-            //内层，依次在 1 .. j 中求出最大值，
-            //例如
-            // 当 j =1 的时候，q=max(q,p[1]+r[0]) .求的r[1]的最优值
-            // 当 j =2 的时候，q=max(q,p[1]+r[1])，然后再是 q=max(q,p[2]+r[0])  ，求的r[2]的最优值
-            //  ... 以此类推
             for (int i=1;i<=j;i++){
                 if (q<p[i]+r[j-i]){
                     q=p[i]+r[j-i];
@@ -191,9 +157,6 @@ public class CutRod {
         }
         //调用求最优值和方案的函数
         extended_button_up_cut_rod(p,n,r,s);
-
-        System.out.print("n="+n+" 的最优值为："+r[n]+" , 切割方案为：");
-        //当 n>0 的时候，表明还有长度需要切割，哪怕做0切割
         while (n>0){
             //输出，组合方案
             System.out.print(s[n] + "+");

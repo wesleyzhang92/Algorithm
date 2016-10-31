@@ -4,8 +4,7 @@ package dynamicprogramming;
  * Created by wesley on 2016/10/17.
  */
 
-//存在bug，无法输出相同的首字母，原因在于数组的遍历时从1开始遍历，根本原因是数组大小的设置
-
+// c[i][j]表示Xi,Yj的LCS长度
 public class LongestCommonSequence {
     public void lcs_length(char[] x, char[] y, int[][] c) {
         int m = x.length;

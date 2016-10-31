@@ -1,15 +1,19 @@
 package dynamicprogramming;
 
+import util.Utils;
+
 /**
  * Created by wesley on 2016/10/14.
  */
 public class MatrixChainOrder {
         private static String name = "ABCDEF";
-        private static int[] a = {30, 35, 15, 5, 10, 20, 25};
 
+        //矩阵Ai的规模为a[i-1]*a[i]
+        private static int[] a = {30, 35, 15, 5, 10, 20, 25};
         private static int len = a.length - 1;
 
         private static int[][] m = new int[len][len];
+        //s[i][j]记录了最优值m[i][j]的分割点
         private static int[][] s = new int[len][len];
 
         public static void main(String[] args)
@@ -30,23 +34,23 @@ public class MatrixChainOrder {
             for(int i=0; i<a.length-1;i++){
                 m[i][i]=0;
             }
-            for(int i=2; i<a.length; i++)
+            for(int l=2; l<a.length; l++)
             {
-                for(int j=0; j<a.length-i; j++)
+                for(int i=0; i<a.length-l; i++)
                 {
-                    t = j + i - 1;
+                    int j = i + l - 1;
 
-                    m[j][t] = Integer.MAX_VALUE;
+                    m[i][j] = Integer.MAX_VALUE;
 
-                    for(int k=j; k<t; k++)
+                    for(int k=i; k<j; k++)
                     {
-                        temp = m[j][k] + m[k+1][t] + a[j]*a[k+1]*a[t+1];
+                        temp = m[i][k] + m[k+1][j] + a[i]*a[k+1]*a[j+1];
 
-                        if(temp < m[j][t])
+                        if(temp < m[i][j])
                         {
                             min = temp;
-                            m[j][t] = temp;
-                            s[j][t] = k;
+                            m[i][j] = temp;
+                            s[i][j] = k;
                         }
                     }
                 }
