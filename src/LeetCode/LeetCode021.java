@@ -5,8 +5,8 @@ package LeetCode;
  * <p>
  * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
  * <p>
- * 关键词：LinkedList、Recursive
- * 难度：Easy
+ * KeyWords: LinkedList,Recursive
+ * Difficulty: Easy
  */
 public class LeetCode021 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

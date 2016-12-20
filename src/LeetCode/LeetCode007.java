@@ -2,11 +2,11 @@ package LeetCode;
 
 /**
  * Reverse Integer
- *
+ * <p>
  * Reverse digits of an integer.
  * Example1: x = 123, return 321
  * Example2: x = -123, return -321
- *
+ * <p>
  * Have you thought about this?
  * Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!
  * If the integer's last digit is 0, what should the output be? ie, cases such as 10, 100.
@@ -15,39 +15,38 @@ package LeetCode;
  * For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
  * Update (2014-11-10):
  * Test cases had been added to test the overflow behavior.
- *
- * 关键词：Math、OverFlow
- * 难度：Easy
+ * <p>
+ * KeyWords: Math,Overflow
+ * Difficulty: Easy
  */
 public class LeetCode007 {
     public int reverse(int x) {
         int result;
-        long a=0;
-        if(x<0)
-            result=-x;
+        long a = 0;
+        if (x < 0)
+            result = -x;
         else
-            result=x;
-        while(result!=0){
-            a=a*10+result%10;
-            result=result/10;
+            result = x;
+        while (result != 0) {
+            a = a * 10 + result % 10;
+            result = result / 10;
         }
 
-        if(a>Integer.MAX_VALUE||a<Integer.MIN_VALUE)
+        if (a > Integer.MAX_VALUE || a < Integer.MIN_VALUE)
             return 0;
-        return x<0 ? -(int)a : (int)a;
+        return x < 0 ? -(int) a : (int) a;
     }
 
     //Better Solution
-    public int reverse2(int x)
-    {
+    public int reverse2(int x) {
         int result = 0;
 
-        while (x != 0)
-        {
+        while (x != 0) {
             int tail = x % 10;
             int newResult = result * 10 + tail;
-            if ((newResult - tail) / 10 != result)
-            { return 0; }
+            if ((newResult - tail) / 10 != result) {
+                return 0;
+            }
             result = newResult;
             x = x / 10;
         }

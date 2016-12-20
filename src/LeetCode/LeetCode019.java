@@ -11,8 +11,8 @@ package LeetCode;
  * Given n will always be valid.
  * Try to do this in one pass.
  * <p>
- * 关键词：LinkedList、TwoPointers
- * 难度：Easy
+ * KeyWords: LinkedList,Two pointers
+ * Difficulty: Easy
  */
 public class LeetCode019 {
     public ListNode removeNthFromEnd(ListNode head, int n) {

@@ -9,8 +9,8 @@ import java.util.Stack;
  *
  * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
  *
- * 关键词：Stack、String
- * 难度：Easy
+ * KeyWords: Stack,String
+ * Difficulty: Easy
  */
 public class LeetCode020 {
     public boolean isValid(String s) {
