@@ -24,11 +24,6 @@ import java.util.Stack;
  * Difficulty: Easy
  */
 public class LeetCode155_MinStack {
-
-
-}
-
-class MinStack {
     // stack: store the stack numbers
     private Stack<Integer> stack = new Stack<Integer>();
     // minStack: store the current min values
@@ -55,4 +50,5 @@ class MinStack {
     public int getMin() {
         return minStack.peek();
     }
+
 }
