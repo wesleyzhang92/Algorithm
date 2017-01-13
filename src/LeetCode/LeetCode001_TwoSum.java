@@ -53,6 +53,20 @@ public class LeetCode001_TwoSum {
         return result;
     }
 
+    //复习时代码
+    public int[] twoSum3(int[] nums, int target) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (hm.containsKey(nums[i])) {
+                result[1] = i;
+                result[0] = hm.get(nums[i]);
+                break;
+            }
+            hm.put(target - nums[i], i);
+        }
+        return result;
+    }
 
     //最优解法，O(n)时间，一次遍历，不需要先装入再遍历
     public int[] twoSum2(int[] numbers, int target) {

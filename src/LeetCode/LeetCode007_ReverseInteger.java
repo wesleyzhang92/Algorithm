@@ -20,6 +20,8 @@ package LeetCode;
  * Difficulty: Easy
  */
 public class LeetCode007_ReverseInteger {
+
+
     public int reverse(int x) {
         int result;
         long a = 0;
@@ -37,7 +39,8 @@ public class LeetCode007_ReverseInteger {
         return x < 0 ? -(int) a : (int) a;
     }
 
-    //Better Solution
+    // Better Solution:If overflow exists, the new result will not equal previous one.
+    // No flags needed. No hard code like 0xf7777777 needed.
     public int reverse2(int x) {
         int result = 0;
 
@@ -52,5 +55,26 @@ public class LeetCode007_ReverseInteger {
         }
 
         return result;
+    }
+
+
+    //可以带符号操作
+    public int reverse3(int x) {
+        long rev = 0;
+        while (x != 0) {
+            rev = rev * 10 + x % 10;
+            x = x / 10;
+            System.out.println(x);
+            if (rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE)
+                return 0;
+        }
+        return (int) rev;
+    }
+
+    public static void main(String[] args) {
+        LeetCode007_ReverseInteger lt = new LeetCode007_ReverseInteger();
+        int s = lt.reverse3(-321);
+        System.out.print(s);
+
     }
 }

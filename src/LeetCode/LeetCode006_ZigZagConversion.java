@@ -33,7 +33,6 @@ public class LeetCode006_ZigZagConversion {
             int count = 0;
             for (int j = i; j < s.length(); ) {
                 if (count % 2 == 0) {
-                    //System.out.println(intval1+ " ");
                     result = result + s.charAt(j);
                     j += intval1;
                     count++;
@@ -94,6 +93,13 @@ public class LeetCode006_ZigZagConversion {
             }
         }
         return res.toString();
+    }
+
+
+    public static void main(String[] args) {
+        LeetCode006_ZigZagConversion lt = new LeetCode006_ZigZagConversion();
+        String s = lt.convert("A", 1);
+        System.out.print(s);
     }
 }
 
