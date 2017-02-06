@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Queue Reconstruction by Height
  * <p>
- * Suppose you have a random list of people standing in a queue. Each person is described by a pair of integers (h, k), where h is the height of the person and k is the number of people in front of this person who have a height greater than or equal to h. Write an algorithm to reconstruct the queue.
+ * Suppose you have a IntroductiontoAlgorithm.random list of people standing in a queue. Each person is described by a pair of integers (h, k), where h is the height of the person and k is the number of people in front of this person who have a height greater than or equal to h. Write an algorithm to reconstruct the queue.
  * <p>
  * Note:
  * The number of people is less than 1,100.
@@ -25,7 +25,7 @@ import java.util.List;
  * KeyWords: Greedy
  */
 public class LeetCode406_QueueReconstructionbyHeight {
-    //Pick out tallest group of people and sort them in a subarray (S). Since there's no other groups of people taller than them, therefore each guy's index will be just as same as his k value.
+    //Pick out tallest group of people and IntroductiontoAlgorithm.sort them in a subarray (S). Since there's no other groups of people taller than them, therefore each guy's index will be just as same as his k value.
     //For 2nd tallest group (and the rest), insert each one of them into (S) by k value. So on and so forth.
     //       E.g.
     //      input: [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]

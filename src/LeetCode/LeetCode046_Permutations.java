@@ -38,7 +38,6 @@ public class LeetCode046_Permutations {
     //Solution1，DFS recursion
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        ArrayList<Integer> temp = new ArrayList<Integer>();
         dfs(res, nums, 0);
         return res;
     }
@@ -111,4 +110,23 @@ public class LeetCode046_Permutations {
         return res;
     }
 
+    // 利用排列组合的模板
+    public List<List<Integer>> permute4(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        permuteHelper(result, new ArrayList<>(), nums);
+        return result;
+    }
+
+    private void permuteHelper(List<List<Integer>> result, List<Integer> tmp, int[] nums) {
+        if (tmp.size() == nums.length) {
+            result.add(new ArrayList(tmp));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (tmp.contains(nums[i])) continue;
+                tmp.add(nums[i]);
+                permuteHelper(result, tmp, nums);
+                tmp.remove(tmp.size() - 1);
+            }
+        }
+    }
 }

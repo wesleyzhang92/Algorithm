@@ -20,7 +20,7 @@ import java.util.Set;
  * Difficulty: Easy
  */
 public class LeetCode202_HappyNumber {
-    // The idea is to use one hash set to record sum of every digit square of every number occurred. Once the current sum
+    // The idea is to use one IntroductiontoAlgorithm.hash set to record sum of every digit square of every number occurred. Once the current sum
     // cannot be added to set, return false; once the current sum equals 1, return true;
     public boolean isHappy(int n) {
         Set<Integer> inLoop = new HashSet<Integer>();

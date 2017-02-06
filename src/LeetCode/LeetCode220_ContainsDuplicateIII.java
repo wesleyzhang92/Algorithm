@@ -15,7 +15,7 @@ import java.util.TreeSet;
  */
 public class LeetCode220_ContainsDuplicateIII {
 
-    // The idea is like the bucket sort algorithm. Suppose we have consecutive buckets covering the range of nums with each
+    // The idea is like the bucket IntroductiontoAlgorithm.sort algorithm. Suppose we have consecutive buckets covering the range of nums with each
     // bucket a width of (t+1). If there are two item with difference <= t, one of the two will happen:
     // (1) the two in the same bucket
     // (2) the two in neighbor buckets

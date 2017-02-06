@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Sort Characters By Frequency
  * <p>
- * Given a string, sort it in decreasing order based on the frequency of characters.
+ * Given a string, IntroductiontoAlgorithm.sort it in decreasing order based on the frequency of characters.
  * <p>
  * Example 1:
  * <p>

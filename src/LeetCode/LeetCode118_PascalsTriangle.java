@@ -43,4 +43,23 @@ public class LeetCode118_PascalsTriangle {
         return lists;
 
     }
+
+    public List<List<Integer>> generate2(int numRows) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (numRows <= 0) return result;
+        List<Integer> tm = new ArrayList<>();
+        tm.add(1);
+        result.add(tm);
+        for (int i = 2; i <= numRows; i++) {
+            List<Integer> tmp = new ArrayList<>();
+            for (int j = 0; j < i; j++) {
+                if (j == 0 || j == i - 1)
+                    tmp.add(1);
+                else
+                    tmp.add(result.get(i - 2).get(j - 1) + result.get(i - 2).get(j));
+            }
+            result.add(tmp);
+        }
+        return result;
+    }
 }
