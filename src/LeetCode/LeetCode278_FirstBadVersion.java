@@ -20,15 +20,21 @@ public class LeetCode278_FirstBadVersion {
         int low = 1;
         int high = n;
         int ver = 0;
-        while (low < high) {
-            ver = (high + low) / 2;
+        while (low + 1 < high) {
+            ver = low + (high - low) / 2;
             if (isBadVersion(ver)) {
                 high = ver;
             } else {
-                low = ver + 1;
+                low = ver;
             }
         }
-        return low;
+
+        if (isBadVersion(low)) {
+            return low;
+        } else {
+            return high;
+        }
+
     }
 
     private boolean isBadVersion(int version) {
