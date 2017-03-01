@@ -31,7 +31,7 @@ public class LeetCode046_Permutations {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
         LeetCode046_Permutations Solution = new LeetCode046_Permutations();
-        List<List<Integer>> res = Solution.permute3(nums);
+        List<List<Integer>> res = Solution.permute4(nums);
         System.out.println(res);
     }
 

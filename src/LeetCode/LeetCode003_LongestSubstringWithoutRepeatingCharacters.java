@@ -56,9 +56,9 @@ public class LeetCode003_LongestSubstringWithoutRepeatingCharacters {
     }
 
 
-    // The idea is use a IntroductiontoAlgorithm.hash set to track the longest substring without repeating characters so far, use a fast pointer
-    // j to see if character j is in the IntroductiontoAlgorithm.hash set or not, if not, great, add it to the IntroductiontoAlgorithm.hash set, move j forward and update
-    // the max length, otherwise, delete from the head by using a slow pointer i until we can put character j to the IntroductiontoAlgorithm.hash set.
+    // The idea is use a hashset to track the longest substring without repeating characters so far, use a fast pointer
+    // j to see if character j is in the hash set or not, if not, great, add it to the hash set, move j forward and update
+    // the max length, otherwise, delete from the head by using a slow pointer i until we can put character j to the hash set.
     public int lengthOfLongestSubstring3(String s) {
         int i = 0, j = 0, max = 0;
         Set<Character> set = new HashSet<>();

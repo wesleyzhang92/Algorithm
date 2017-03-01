@@ -12,7 +12,7 @@ package LeetCode;
  * Difficulty: Easy
  */
 public class LeetCode083_RemoveDuplicatesfromSortedList {
-    public ListNode deleteDuplicates(ListNode head) {
+    public ListNode deleteDuplicates3(ListNode head) {
         ListNode tmp=head;
         if(head==null||head.next==null){
             return head;
@@ -34,5 +34,25 @@ public class LeetCode083_RemoveDuplicatesfromSortedList {
         if(head == null || head.next == null)return head;
         head.next = deleteDuplicates2(head.next);
         return head.val == head.next.val ? head.next : head;
+    }
+
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        ListNode first = head.next;
+        while (first != null && head.val == first.val) {
+            first = first.next;
+        }
+        head.next = deleteDuplicates(first);
+        return head;
+    }
+
+    public static void main(String[] args) {
+        LeetCode083_RemoveDuplicatesfromSortedList lc = new LeetCode083_RemoveDuplicatesfromSortedList();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(1);
+        ListNode tmp = lc.deleteDuplicates(head);
+
     }
 }

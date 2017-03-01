@@ -23,29 +23,39 @@ import java.util.Stack;
  * Difficulty: Medium
  */
 public class LeetCode144_BinaryTreePreorderTraversal {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<Integer>();
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode node = root;
-        while(node != null){
-            res.add(node.val);
-            if(node.right != null)
-                stack.push(node.right);
-            node = node.left;
-            if(node == null && !stack.isEmpty())
-                node = stack.pop();
+    public List<Integer> preorderTraversal3(TreeNode root) {
+        List<Integer> pre = new LinkedList<Integer>();
+        if (root == null) return pre;
+        Stack<TreeNode> tovisit = new Stack<TreeNode>();
+        tovisit.push(root);
+        while (!tovisit.empty()) {
+            TreeNode visiting = tovisit.pop();
+            pre.add(visiting.val);
+            if (visiting.right != null) tovisit.push(visiting.right);
+            if (visiting.left != null) tovisit.push(visiting.left);
         }
-        return res;
+        return pre;
     }
 
-    List<Integer> result = new ArrayList<Integer>();
-
     public List<Integer> preorderTraversal2(TreeNode root) {
-        if (root != null) {
-            result.add(root.val);
-            preorderTraversal2(root.left);
-            preorderTraversal2(root.right);
-        }
-        return result;
+        List<Integer> pre = new LinkedList<Integer>();
+        preHelper(root, pre);
+        return pre;
+    }
+
+    public void preHelper(TreeNode root, List<Integer> pre) {
+        if (root == null) return;
+        pre.add(root.val);
+        preHelper(root.left, pre);
+        preHelper(root.right, pre);
+    }
+
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> pre = new LinkedList<Integer>();
+        if (root == null) return pre;
+        pre.add(root.val);
+        pre.addAll(preorderTraversal(root.left));
+        pre.addAll(preorderTraversal(root.right));
+        return pre;
     }
 }
